@@ -1,8 +1,10 @@
-import json
+import json,math
 house=[]
-fs=[49,49,49,
-    49,0,49,
-    49,49,49]
+fs=[0,0,0,0,
+    0,0,0,0,
+    0,0,0,0,
+    49,0,0,0
+    ]
 
 house.append(fs)
 house.append(fs)
@@ -22,8 +24,13 @@ mc = Minecraft.create()
 class mic:
 
     def build(self,item,y):
-        for fg in range(0,3):
-            for kk in range(0,3):
+        n=len(item[0])
+        print math.sqrt(n)
+        h=math.sqrt(n)
+        h=int(h)
+        
+        for fg in range(0,h):
+            for kk in range(0,h):
                 mc.setBlock(self.x+kk,self.y+y,self.z+fg,item)
                 time.sleep(0.1)
 
